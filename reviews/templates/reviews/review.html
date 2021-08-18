@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Review</title>
+    <link rel="stylesheet" href="{% static 'reviews/styles.css' %}">
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+<!--        {% if has_error %}-->
+<!--            <p>-->
+<!--                This form is invalid- please enter a valid username!-->
+<!--            </p>-->
+<!--        {% endif %}-->
+        {% for field in user_form %}
+             <div class="form-control {%if field.errors %}errors{% endif %}">
+            {{ field.label_tag }}
+            {{ field }}
+            {{ field.errors }}
+        </div>
+        {% endfor %}
+
+
+<!--        <div class="form-control {%if user_form.user_name.errors %}errors{% endif %}">-->
+<!--            {{ user_form.user_name.label_tag }}-->
+<!--            {{ user_form.user_name }}-->
+<!--            {{ user_form.user_name.errors }}-->
+<!--        </div>-->
+<!--         <div class="form-control {%if user_form.user_name.errors %}errors{% endif %}">-->
+<!--            {{ user_form.review_text.label_tag }}-->
+<!--            {{ user_form.review_text }}-->
+<!--            {{ user_form.review_text.errors }}-->
+<!--        </div>-->
+<!--        <div class="form-control {%if user_form.user_name.errors %}errors{% endif %}">-->
+<!--            {{ user_form.rating.label_tag }}-->
+<!--            {{ user_form.rating }}-->
+<!--            {{ user_form.rating.errors }}-->
+<!--        </div>-->
+
+<!--        <label for="username">Your Name</label>-->
+<!--        <input id="username" name="username" type="text">-->
+        <button type="submit">Send</button>
+
+    </form>
+</body>
+</html>
