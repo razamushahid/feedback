@@ -130,3 +130,5 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = "/user-images/"
 MEDIA_ROOT = BASE_DIR / 'uploads'
+
+SESSION_COOKIE_AGE = 4
